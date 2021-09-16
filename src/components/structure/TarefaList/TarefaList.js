@@ -1,5 +1,5 @@
 import React from "react";
-import { useEffect, useState } from "react/cjs/react.development";
+import { useEffect, useState } from "react";
 import { Api } from "../../../api/api";
 import TarefaCard from "../TarefaCard/TarefaCard";
 import "./TarefaList.scss";
