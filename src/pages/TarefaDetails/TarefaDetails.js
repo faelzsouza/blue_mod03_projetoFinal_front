@@ -5,7 +5,7 @@ import { useState, useEffect } from "react/cjs/react.development";
 import { Api } from "../../api/api";
 import "react-responsive-modal/styles.css";
 import "./TarefaDetails.scss";
-import { format } from 'date-fns'
+import { format } from "date-fns";
 
 const TarefaDetails = (props) => {
     const [tarefa, setTarefa] = useState({});
@@ -29,9 +29,15 @@ const TarefaDetails = (props) => {
         props.history.push("/");
     };
     const formataData = (data) => {
-        console.log('data' + data)
-        return data.substring(8,10) + '/' + data.substring(5,7) + '/' + data.substring(0, 4)
-    }
+        console.log("data" + data);
+        return (
+            data.substring(8, 10) +
+            "/" +
+            data.substring(5, 7) +
+            "/" +
+            data.substring(0, 4)
+        );
+    };
     return (
         <div className="tarefaCard_details">
             <div
@@ -64,7 +70,8 @@ const TarefaDetails = (props) => {
                 <p className="card__descricao_details">{tarefa.descricao}</p>
                 <p className="card__status">Status: {tarefa.status}</p>
                 <p className="card__data dataCriacao">
-                    Criado em: {new Date(tarefa.dataCriacao).toLocaleDateString()}
+                    Criado em:{" "}
+                    {new Date(tarefa.dataCriacao).toLocaleDateString()}
                 </p>
                 <p className="card__data dataPrazo">
                     Prazo: {new Date(tarefa.prazo).toLocaleDateString()}

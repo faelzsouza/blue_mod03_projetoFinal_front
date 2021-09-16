@@ -1,34 +1,35 @@
-import React from 'react'
-import { useEffect, useState } from 'react/cjs/react.development'
-import { Api } from '../../api/api'
-import TarefaAdd from '../TarefaAdd/TarefaAdd'
+import React from "react";
+import { useEffect, useState } from "react/cjs/react.development";
+import { Api } from "../../api/api";
+import TarefaAdd from "../TarefaAdd/TarefaAdd";
 
 const TarefaEdit = (props) => {
-    const [ fields , setFields ] = useState({})
-    
-    useEffect(() => {
-        getTarefaById()}, [])
+    const [fields, setFields] = useState({});
 
-    const id = props.match.params.id
+    useEffect(() => {
+        getTarefaById();
+    }, []);
+
+    const id = props.match.params.id;
 
     const getTarefaById = async () => {
-        const response = await Api.fetchGetById(id)
-        const data = await response.json()
-        console.log(data)
-        setFields(data)
-    }
+        const response = await Api.fetchGetById(id);
+        const data = await response.json();
+        console.log(data);
+        setFields(data);
+    };
     const handleFieldsChange = (event) => {
-        const auxFields = { ...fields }
+        const auxFields = { ...fields };
         auxFields[event.target.name] = event.target.value;
-        setFields(auxFields)
-    }
+        setFields(auxFields);
+    };
 
     const handleSubmit = async (event) => {
         event.preventDefault();
-        const tarefa = { ...fields }
-        const result = await Api.fetchPut(tarefa, tarefa._id)
+        const tarefa = { ...fields };
+        const result = await Api.fetchPut(tarefa, tarefa._id);
         props.history.push("/");
-    }
+    };
     return (
         <form className="form" onSubmit={handleSubmit}>
             <div className="bold-line"></div>
@@ -86,11 +87,13 @@ const TarefaEdit = (props) => {
                                 type="date"
                                 name="prazo"
                                 id="prazo"
-                                value={(() => {if(fields.prazo){
-                                    return fields.prazo.substring(0,10)
-                                } else {
-                                    return fields.prazo
-                                }})()}
+                                value={(() => {
+                                    if (fields.prazo) {
+                                        return fields.prazo.substring(0, 10);
+                                    } else {
+                                        return fields.prazo;
+                                    }
+                                })()}
                                 onChange={handleFieldsChange}
                                 className="input-line full-width"
                                 required
@@ -106,6 +109,6 @@ const TarefaEdit = (props) => {
             </div>
         </form>
     );
-}
+};
 
-export default TarefaEdit
+export default TarefaEdit;

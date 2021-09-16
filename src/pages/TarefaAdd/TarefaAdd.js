@@ -4,21 +4,24 @@ import { Api } from "../../api/api";
 import "./TarefaAdd.scss";
 
 const TarefaAdd = (props) => {
-    const [fields, setFields] = useState({status: 'fazer', prioridade: 'alta'})
+    const [fields, setFields] = useState({
+        status: "fazer",
+        prioridade: "alta",
+    });
 
     const handleFieldsChange = (event) => {
-        const auxFields = { ...fields }
+        const auxFields = { ...fields };
         auxFields[event.target.name] = event.target.value;
-        setFields(auxFields)
-    }
+        setFields(auxFields);
+    };
 
     const handleSubmit = async (event) => {
         event.preventDefault();
-        const tarefa = { ...fields }
-        const result = await Api.fetchPost(tarefa)
+        const tarefa = { ...fields };
+        const result = await Api.fetchPost(tarefa);
         props.history.push("/");
-    }
-    console.log()
+    };
+    console.log();
     return (
         <form className="form" onSubmit={handleSubmit}>
             <div className="bold-line"></div>

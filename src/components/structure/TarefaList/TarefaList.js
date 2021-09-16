@@ -2,20 +2,20 @@ import React from "react";
 import { useEffect, useState } from "react/cjs/react.development";
 import { Api } from "../../../api/api";
 import TarefaCard from "../TarefaCard/TarefaCard";
-import './TarefaList.scss'
+import "./TarefaList.scss";
 
 const TarefaList = () => {
-    const [tarefas, setTarefas] = useState([])
+    const [tarefas, setTarefas] = useState([]);
 
     useEffect(() => {
-        getTarefas()
-    }, [])
+        getTarefas();
+    }, []);
 
     const getTarefas = async () => {
         const response = await Api.fetchGet();
         const data = await response.json();
-        setTarefas(data)
-    }
+        setTarefas(data);
+    };
 
     let tarefasFazer = [];
     let tarefasFazendo = [];
@@ -40,13 +40,16 @@ const TarefaList = () => {
             {(() => {
                 if (tarefasFazer.length > 0) {
                     return (
-                        <div className='statusArea'>
+                        <div className="statusArea">
                             <strong>Fazer</strong>
-                        <section className="tarefasStatus">
-                            {tarefasFazer.map((tarefa, idx) => (
-                                <TarefaCard tarefa={tarefa} className='card card-2' />
-                            ))}
-                        </section>
+                            <section className="tarefasStatus">
+                                {tarefasFazer.map((tarefa, idx) => (
+                                    <TarefaCard
+                                        tarefa={tarefa}
+                                        className="card card-2"
+                                    />
+                                ))}
+                            </section>
                         </div>
                     );
                 }
@@ -54,13 +57,16 @@ const TarefaList = () => {
             {(() => {
                 if (tarefasFazendo.length > 0) {
                     return (
-                        <div className='statusArea'>
-                        <strong>Fazendo</strong>
-                        <section className="tarefasStatus">
-                            {tarefasFazendo.map((tarefa, idx) => (
-                                <TarefaCard tarefa={tarefa} className='card card-5' />
-                            ))}
-                        </section>
+                        <div className="statusArea">
+                            <strong>Fazendo</strong>
+                            <section className="tarefasStatus">
+                                {tarefasFazendo.map((tarefa, idx) => (
+                                    <TarefaCard
+                                        tarefa={tarefa}
+                                        className="card card-5"
+                                    />
+                                ))}
+                            </section>
                         </div>
                     );
                 }
@@ -68,13 +74,16 @@ const TarefaList = () => {
             {(() => {
                 if (tarefasFeito.length > 0) {
                     return (
-                        <div className='statusArea'>
+                        <div className="statusArea">
                             <strong>Feito</strong>
-                        <section className="tarefasStatus">
-                            {tarefasFeito.map((tarefa, idx) => (
-                                <TarefaCard tarefa={tarefa} className='card card-4' />
-                            ))}
-                        </section>
+                            <section className="tarefasStatus">
+                                {tarefasFeito.map((tarefa, idx) => (
+                                    <TarefaCard
+                                        tarefa={tarefa}
+                                        className="card card-4"
+                                    />
+                                ))}
+                            </section>
                         </div>
                     );
                 }
