@@ -1,0 +1,21 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+strong {
+    width: 70px;
+}
+
+.tarefasStatus {
+    display: flex;
+    flex-direction: row;
+}
+
+.statusArea {
+    strong {
+        color: #272727;
+        font-size: 2rem;
+        margin-left: 1rem;
+    }
+}
