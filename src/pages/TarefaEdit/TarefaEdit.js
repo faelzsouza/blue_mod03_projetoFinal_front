@@ -15,7 +15,6 @@ const TarefaEdit = (props) => {
     const getTarefaById = async () => {
         const response = await Api.fetchGetById(id);
         const data = await response.json();
-        console.log(data);
         setFields(data);
     };
     const handleFieldsChange = (event) => {

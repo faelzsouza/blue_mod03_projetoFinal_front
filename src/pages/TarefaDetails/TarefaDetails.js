@@ -20,7 +20,6 @@ const TarefaDetails = (props) => {
     const getTarefaById = async () => {
         const response = await Api.fetchGetById(id);
         const data = await response.json();
-        console.log(data);
         setTarefa(data);
     };
 
@@ -29,7 +28,6 @@ const TarefaDetails = (props) => {
         props.history.push("/");
     };
     const formataData = (data) => {
-        console.log("data" + data);
         return (
             data.substring(8, 10) +
             "/" +

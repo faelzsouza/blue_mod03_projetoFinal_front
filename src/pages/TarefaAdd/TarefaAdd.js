@@ -21,7 +21,6 @@ const TarefaAdd = (props) => {
         const result = await Api.fetchPost(tarefa);
         props.history.push("/");
     };
-    console.log();
     return (
         <form className="form" onSubmit={handleSubmit}>
             <div className="bold-line"></div>
