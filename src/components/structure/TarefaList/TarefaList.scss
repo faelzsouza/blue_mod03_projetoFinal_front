@@ -10,6 +10,7 @@ strong {
 .tarefasStatus {
     display: flex;
     flex-direction: row;
+    flex-wrap: wrap;
 }
 
 .statusArea {
