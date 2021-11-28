@@ -1,4 +1,4 @@
-# Getting Started with Create React App
+# Projeto final do módulo 3 - Full Stack (1)
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
